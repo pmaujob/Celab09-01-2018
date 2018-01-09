@@ -1,0 +1,27 @@
+body{
+    background-image: url('../images/background.png');
+    margin-top: 46px;
+}
+
+.header-login{
+    padding: 11px;
+}
+
+.frm-login form{
+    background-color: #FFFFFF;
+    border: solid #3990FE 1px;
+    padding: 36px;
+}
+
+.img{
+    padding-bottom: 22px;
+}
+
+.blueb{
+    background-color: #3990FE;
+}
+
+.name-aplication{
+    color: #666666;
+}
+

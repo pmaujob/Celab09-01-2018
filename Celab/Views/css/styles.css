@@ -1,0 +1,91 @@
+.loading{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    padding-top: 20%;
+    background-color: whitesmoke;
+    z-index: 9999;
+}
+
+.logo-load{
+    text-align: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.general-container{
+    margin-top: 66px;
+}
+
+.icon-search{
+    width: 25%; 
+    height: 25%;
+    transition: width 0.5s, height 0.5s;
+    -webkit-transition: width 0.5s, height 0.5s;
+    -o-transition: width 0.5s, height 0.5s;
+    -ms-transition: width 0.5s, height 0.5s;
+    -moz-transition: width 0.5s, height 0.5s;
+}
+
+.lbl-style{
+    color: #666F7B;    
+    transition: width 0.5s, height 0.5s;
+}
+
+/* Cambiar Color de input materialize*/
+
+/* Icono */
+i.active {
+    color: #000;
+}
+/* Etiqueta */
+.input-field input[type=text]:focus + label {
+    color: #000;
+}
+/* Línea */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #3991FE;
+    box-shadow: 0 1px 0 0 #3991FE;
+}
+/* Línea con texto sin focusear */
+input.valid {
+    border-bottom: 1px solid #3991FE !important;
+    box-shadow: 0 1px 0 0 #3991FE !important
+}
+
+/* Icono */
+i.active {
+    color: #3991FE !important;
+}
+
+/* Etiqueta focuseada */
+.input-field input:focus + label {
+    color: #3991FE !important;
+}
+
+/* Línea focuseada */
+.row .input-field input:focus {
+    border-bottom: 1px solid #3991FE !important;
+    box-shadow: 0 1px 0 0 #3991FE !important
+}
+
+/* tamaño modal bottom */
+.modal.bottom-sheet{
+    max-height: 60%;
+}
+
+.modal{
+    height: 60%;
+}
+
+.ver-mas-button {
+    color: #3991FE;
+}
+
+.picker__date-display {
+    background-color:blue;
+}
+
+
+

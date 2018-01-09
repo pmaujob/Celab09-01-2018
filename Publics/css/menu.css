@@ -1,0 +1,152 @@
+/* estilos menu */
+
+.contenedor-menu{
+    position: fixed;
+    margin-top: 60px;
+    height: 100%;
+    background-color: #ffffff;
+    overflow: scroll;
+    overflow-y: scroll;
+}
+
+.contenedor-menu .logo{
+    width: 100%;
+    height: 200px;
+}
+
+.contenedor-menu .logo img{
+    width: 100%;
+    height: 100%;
+}
+
+.head-usuario{
+    background-color: #F1F1F1;
+    height: 66px;
+    position: fixed;
+    z-index: 200;
+}
+
+.head-usuario{
+    color: #03A9F4;
+}
+
+.head-usuario div ul li i{
+    color: #03A9F4;
+}
+
+/* Menú usuario */
+#btnUserMenu.active {
+    color: #03A9F4;
+    float: right;
+    width: 230px;
+    cursor: default;
+}
+
+.head-usuario div .dropdown-content{
+    float: right;
+    margin-top: 65px;
+    color: #03A9F4;
+}
+
+.head-usuario div .dropdown-content li a{
+    color: #03A9F4;
+}
+
+.contenedor-menu a{
+    text-decoration: none;
+    color: #ffffff;
+    height: 100%;
+    background-color: #0000CC;
+    overflow: scroll;
+    overflow-y: visible;
+    overflow-x: hidden;
+}
+
+.btn-menu{
+    padding: 20px;
+    display: none;
+    background: #0d2c44;
+    color: #ffffff;
+}
+
+.btn-menu .icono{
+    float: right;
+}
+
+.contenedor-menu .menu{
+    width: 100%;
+}
+
+.contenedor-menu ul{
+    list-style: none;
+}
+
+.contenedor-menu .menu li a{
+    color: #494949;
+    display: block;
+    padding: 15px 20px;
+    background-color: #e9e9e9;
+}
+
+.contenedor-menu .menu li a:hover{
+    background-color: #CBD773;
+    color: #FFFFFF;
+}
+
+.contenedor-menu .menu .icono{
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.contenedor-menu .menu .icono.izquierda{
+    float: right;
+    margin-left: 10px;
+}
+
+.contenedor-menu .menu ul{
+    display: none;
+}
+
+.contenedor-menu .menu ul li a{
+    background-color: #cccccc;
+    color: #e9e9e9;
+}
+
+.contenedor-menu .menu .activado > a{
+    background-color: #008643;
+    color: #FFFFFF;
+}
+
+.usuario i {
+    color: #03A9F4;
+    margin-top: 4px;
+}
+
+.apps {
+    background: #03A9F4;
+}
+
+.icon-menu{
+    margin-top: 14px;
+}
+
+@media screen and (max-width: 600px){
+    .contenedor-menu{
+        z-index: 1000;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .contenedor-menu .logo{
+        display: none;
+    }
+
+    .btn-menu{
+        display: block;
+    }
+
+    .contenedor-menu .menu{
+        display: none;
+    }
+
+}
