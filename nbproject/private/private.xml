@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/xampp/htdocs/Celab/CelabServices/Views/certificates/contractorCert.php</file>
             <file>file:/C:/xampp/htdocs/Celab/CelabServices/Models/MGetContractAdditions.php</file>
+            <file>file:/C:/xampp/htdocs/Celab/CelabServices/Models/MUpdateContractorData.php</file>
         </group>
     </open-files>
 </project-private>
