@@ -131,12 +131,33 @@ $pdf->Cell(0, 4, utf8_decode('Carrera 25 No. 17-49 - Edificio de la Beneficienci
 $pdf->Ln();
 $pdf->Cell(44, 4, utf8_decode('Pasto-Nariño Tel 7207666 Email: '));
 $pdf->SetFont('Arial', 'BIU', 8);
-$pdf->Cell(44, 4, utf8_decode('Contratación@narino.gov.co'));
+$pdf->Cell(44, 4, utf8_decode('Contratacion@narino.gov.co'));
 $pdf->Ln();
 $pdf->Cell(44, 4, utf8_decode('www.narino.gov.co'));
 
 $pdf->Output();
 
+//========= Enviar por correo===========
 
+$attachment = $pdf->Output('S', 'certificado.pdf');
+
+$asunto = utf8_encode("Radicación Proyecto Bpid");
+$msg = "PRUEBA ENVÍO PDF";
+$altCuerpo = "PRUEBA ENVÍO PDF";
+
+$correo = new Correos();
+$correo->raiz = $raiz;
+$correo->inicializar();
+$correo->setDestinatario("danielernestodaza@hotmail.com");
+$correo->armarCorreo($asunto, $msg, $altCuerpo);
+
+$correoEnviado = $correo->enviar();
+
+$intentos = 1;
+while ((!$correoEnviado) && ($intentos < 3)) {
+    sleep(5);
+    $correoEnviado = $correo->enviar();
+    $intentos++;
+}
 
 ?>
