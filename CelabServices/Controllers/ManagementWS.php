@@ -3,8 +3,9 @@
 @session_start();
 $pRootC = $_SESSION['pRootC'];
 
+require_once $pRootC . '/Config/SysConfig.php';
+require_once MLIBPATH . 'SessionVars.php';
 require_once $pRootC . '/CelabServices/Models/MGetTipoVinculacion.php';
-require_once $pRootC . '/Libraries/SessionVars.php';
 require_once $pRootC . '/CelabServices/Models/MSearchDocument.php';
 
 const MOD_VINCULATION_TYPE = "MOD_VINCULATION_TYPE";

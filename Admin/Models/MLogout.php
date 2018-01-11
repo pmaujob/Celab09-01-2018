@@ -4,7 +4,9 @@
 
 $pRootC = $_SESSION['pRootC'];
 
-require_once $pRootC.'/libraries/ConnectionDB.php';
+require_once $pRootC . '/Config/SysConfig.php';
+require_once MLIBPATH . 'ConnectionDB.php';
+require_once MLIBPATH . 'HostData.php';
 
 class MLogout {
     

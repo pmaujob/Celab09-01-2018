@@ -4,9 +4,9 @@
 
 $pRootC = $_SESSION['pRootC'];
 
-
-require_once $pRootC . "/Libraries/HostData.php";
-require_once $pRootC . '/Libraries/ConnectionDB.php';
+require_once $pRootC . '/Config/SysConfig.php';
+require_once MLIBPATH . 'HostData.php';
+require_once MLIBPATH . 'ConnectionDB.php';
 
 class MLogin {
 

@@ -13,7 +13,7 @@ function onLoadRegistContractor() {
         data: {op: 1},
         timeout: 0,
         success: function (respuesta) {
-
+            
             var vitypes = JSON.parse(respuesta);
             for (var i = 0; i < vitypes.length; i++) {
 

@@ -3,7 +3,8 @@
 @session_start();
 $pRootC = $_SESSION['pRootC'];
 
-require_once $pRootC . '/Libraries/ConvertFormats.php';
+require_once $pRootC . '/Config/SysConfig.php';
+require_once MLIBPATH . 'ConvertFormats.php';
 require_once $pRootC . '/Celab/Models/MRegistContractorData.php';
 
 class CRegistContract {

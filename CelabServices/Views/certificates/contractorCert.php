@@ -12,10 +12,11 @@ $contractData = explode('@sltlnr', $_SESSION['contractData']);
 
 $pRootC = $_SESSION['pRootC'];
 
-require_once $pRootC . '/Libraries/fpdf/fpdf.php';
-require_once $pRootC . '/Libraries/fpdf/PDF.php';
-require_once $pRootC . '/Libraries/PDFFormats.php';
-require_once $pRootC . '/Libraries/ConvertFormats.php';
+require_once $pRootC . '/Config/SysConfig.php';
+require_once MLIBPATH . 'fpdf/fpdf.php';
+require_once MLIBPATH . 'fpdf/PDF.php';
+require_once MLIBPATH . 'PDFFormats.php';
+require_once MLIBPATH . 'ConvertFormats.php';
 require_once $pRootC . '/CelabServices/Models/MGetContractAdditions.php';
 
 $pdf = new FPDF('P', 'mm', 'Letter'); // vertical, milimetros y tamaño

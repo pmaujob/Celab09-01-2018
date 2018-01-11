@@ -4,8 +4,9 @@
 
 $pRootC = $_SESSION['pRootC'];
 
+require_once $pRootC . '/Config/SysConfig.php';
+require_once MLIBPATH . 'SessionVars.php';
 require_once $pRootC . '/Admin/Models/MLogin.php';
-require_once $pRootC . '/Libraries/SessionVars.php';
 
 class CLogin {
 

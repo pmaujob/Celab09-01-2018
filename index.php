@@ -6,7 +6,8 @@ $_SESSION['pRootHtmlC'] = 'http://' . $_SERVER['SERVER_NAME'] . '/Celab';
 $pRootC = $_SESSION['pRootC'];
 $pRootHtmlC = $_SESSION['pRootHtmlC'];
 
-require_once $pRootC . '/Libraries/SessionVars.php';
+require_once $pRootC . '/Config/SysConfig.php';
+require_once MLIBPATH . 'SessionVars.php';
 
 $sess = new SessionVars();
 
@@ -22,7 +23,8 @@ if (!$sess->varExist('user')) {
             <script type="text/javascript" src="Admin/Views/js/login.js"></script>
             <link rel="stylesheet" type="text/css" href="Publics/css/stylesLogin.css">
         </head>
-        <body onload="onLoad();" onkeyup = "if (event.keyCode == 13) login();">
+        <body onload="onLoad();" onkeyup = "if (event.keyCode == 13)
+                        login();">
             <div id="loading" class="loading">
                 <div class="logo-load">
                     <div class="preloader-wrapper big active valign-wrapper">
