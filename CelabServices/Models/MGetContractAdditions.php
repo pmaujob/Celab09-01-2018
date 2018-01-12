@@ -59,6 +59,7 @@ class MGetContractAdditions {
 
                 break;
         }
+        
         return ConnectionDB::consult(new HostData(), $sql);
     }
 

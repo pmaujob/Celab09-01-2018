@@ -31,6 +31,14 @@ switch ($opModel) {
         header("Location:  $pRootHtml/CelabServices/Views/certificates/contractorCert.php");
 
         break;
+    
+    case "MOD_GET_CONTRACT_ADDS":
+        
+        $idContract = $_POST['idContract'];
+        $bd = $_POST['bd'];
+        header("Location:  $pRootHtml/CelabServices/Controllers/ManagementWS.php?opModel=" . $opModel . "&idContract=" . $idContract . "&bd=" . $bd);
+        
+        break;
 
     default:
 
