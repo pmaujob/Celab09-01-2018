@@ -5,7 +5,7 @@ $pRootC = $_SESSION['pRootC'];
 $pRootHtmlC = $_SESSION['pRootHtmlC'];
 
 require_once $pRootC . '/Config/SysConfig.php';
-require_once MLIBPATH . 'SessionVars.php';
+require_once MLIBPATH . 'Access/SessionVars.php';
 
 $sess = new SessionVars();
 

@@ -4,7 +4,7 @@
 $pRootC = $_SESSION['pRootC'];
 
 require_once $pRootC . '/Config/SysConfig.php';
-require_once MLIBPATH . 'ConvertFormats.php';
+require_once MLIBPATH . 'Formats/ConvertFormats.php';
 require_once $pRootC . '/Celab/Models/MRegistContractorData.php';
 
 class CRegistContract {

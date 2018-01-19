@@ -4,7 +4,7 @@
 $pRootC = $_SESSION['pRootC'];
 
 require_once $pRootC . '/Config/SysConfig.php';
-require_once MLIBPATH . 'SessionVars.php';
+require_once MLIBPATH . 'Access/SessionVars.php';
 require_once $pRootC . '/CelabServices/Models/MGetTipoVinculacion.php';
 require_once $pRootC . '/CelabServices/Models/MSearchDocument.php';
 require_once $pRootC . '/CelabServices/Models/MGetContractAdditions.php';
@@ -34,7 +34,7 @@ switch ($opModel) {
         echo json_encode(MGetContractAdditions::getAdditions($idContract, $bd)->fetchAll(PDO::FETCH_OBJ));
         
         break;
-    
+        
     default:
         echo MOD_ERROR;
         break;

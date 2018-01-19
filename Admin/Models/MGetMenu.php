@@ -5,8 +5,8 @@
 $pRootC = $_SESSION['pRootC'];
 
 require_once $pRootC . '/Config/SysConfig.php';
-require_once MLIBPATH . 'ConnectionDB.php';
-require_once MLIBPATH . 'SessionVars.php';
+require_once MLIBPATH . 'Connection/ConnectionDB.php';
+require_once MLIBPATH . 'Access/SessionVars.php';
 
 class MGetMenu {
 

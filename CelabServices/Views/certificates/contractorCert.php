@@ -15,8 +15,9 @@ $pRootC = $_SESSION['pRootC'];
 require_once $pRootC . '/Config/SysConfig.php';
 require_once MLIBPATH . 'fpdf/fpdf.php';
 require_once MLIBPATH . 'fpdf/PDF.php';
-require_once MLIBPATH . 'PDFFormats.php';
-require_once MLIBPATH . 'ConvertFormats.php';
+require_once MLIBPATH . 'Formats/PDFFormats.php';
+require_once MLIBPATH . 'Formats/ConvertFormats.php';
+require_once MLIBPATH . 'Mails/LnxMail.php';
 require_once $pRootC . '/CelabServices/Models/MGetContractAdditions.php';
 
 $pdf = new FPDF('P', 'mm', 'Letter'); // vertical, milimetros y tamaño
@@ -82,11 +83,15 @@ for ($i = 0; $i < count($contractData) - 1; $i++) {
 
             $tipAdd = "ADICIÓN ";
 
-            if ($add[2] != '1900-01-01' && $add[3] != '0') {
+            if (($contract[6] == "siscon" && $add[2] != '1900-01-01' && $add[3] != '0') ||
+                    ($contract[6] != "siscon" && ($add[2] != null && trim($add[2]) != "") &&
+                    ($add[3] != null && trim($add[3]) != ""))) {
                 $tipAdd .= 'EN TIEMPO Y VALOR';
-            } else if ($add[2] != '1900-01-01') {
+            } else if (($contract[6] == "siscon" && $add[2] != '1900-01-01') ||
+                    ($contract[6] != "siscon" && $add[2] != null && trim($add[2]) != "")) {
                 $tipAdd .= 'EN TIEMPO ';
-            } else if ($add[3] != '0') {
+            } else if (($contract[6] == "siscon" && $add[3] != '0') ||
+                    ($contract[6] != "siscon" && $add[3] != null && trim($add[3]) != "")) {
                 $tipAdd .= 'EN VALOR ';
             }
 
@@ -137,28 +142,22 @@ $pdf->Ln();
 $pdf->Cell(44, 4, utf8_decode('www.narino.gov.co'));
 
 $pdf->Output();
-
 //========= Enviar por correo===========
 
 $attachment = $pdf->Output('S', 'certificado.pdf');
 
-$asunto = utf8_encode("Radicación Proyecto Bpid");
-$msg = "PRUEBA ENVÍO PDF";
-$altCuerpo = "PRUEBA ENVÍO PDF";
+$subject = utf8_encode("Radicación Proyecto Bpid");
+$msg = "Estimado(a) " . $contractorData[0] . ", adjuntamos al presente correo, copia del certificado "
+        . "de contratos expedido el día " . ConvertFormats::formatDate(date("d-M-Y"));
+$altBody = utf8_decode("Estimado(a) " . $contractorData[0] . ", adjuntamos al presente correo, copia del certificado "
+        . "de contratos expedido el día " . ConvertFormats::formatDate(date("d-M-Y")));
 
-$correo = new Correos();
-$correo->raiz = $raiz;
-$correo->inicializar();
-$correo->setDestinatario("danielernestodaza@hotmail.com");
-$correo->armarCorreo($asunto, $msg, $altCuerpo);
+$mail = new LnxMail();
+$mail->construct();
+$mail->setAddress("danielernestodaza@hotmail.com");
+$mail->buildMail($subject, $msg, $altBody);
+$mail->addFPDFAttachment($attachment, 'certificado.pdf');
 
-$correoEnviado = $correo->enviar();
-
-$intentos = 1;
-while ((!$correoEnviado) && ($intentos < 3)) {
-    sleep(5);
-    $correoEnviado = $correo->enviar();
-    $intentos++;
-}
+$sendedMail = $mail->send();
 
 ?>

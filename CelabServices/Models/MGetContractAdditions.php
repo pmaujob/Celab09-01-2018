@@ -4,8 +4,8 @@
 $pRootC = $_SESSION['pRootC'];
 
 require_once $pRootC . '/Config/SysConfig.php';
-require_once MLIBPATH . 'HostData.php';
-require_once MLIBPATH . 'ConnectionDB.php';
+require_once MLIBPATH . 'Connection/HostData.php';
+require_once MLIBPATH . 'Connection/ConnectionDB.php';
 
 class MGetContractAdditions {
 

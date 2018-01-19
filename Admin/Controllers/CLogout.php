@@ -6,7 +6,7 @@ $pRootC = $_SESSION['pRootC'];
 $pRootHtmlC = $_SESSION['pRootHtmlC'];
 
 require_once $pRootC . '/Config/SysConfig.php';
-require_once MLIBPATH . 'SessionVars.php';
+require_once MLIBPATH . 'Access/SessionVars.php';
 require_once $pRootC . '/Admin/Models/MLogout.php';
 
 class CLogout {

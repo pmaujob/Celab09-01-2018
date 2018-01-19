@@ -6,7 +6,7 @@ $pRootHtmlC = $_SESSION['pRootHtmlC'];
 
 require_once $pRootC . '/Admin/Models/MGetMenu.php';
 require_once $pRootC . '/Config/SysConfig.php';
-require_once MLIBPATH . 'SessionVars.php';
+require_once MLIBPATH . 'Access/SessionVars.php';
 
 $modules = MGetMenu::getMenu(2, 1);
 
