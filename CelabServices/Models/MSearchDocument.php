@@ -15,25 +15,34 @@ class MSearchDocument {
 
         switch ($docType) {
 
-            case "V1":
-                //consulta para ACTIVOS              
-
+            case "V1": //consulta para ACTIVOS
+                         
                 break;
 
-            case "V2":
-                //consulta para EXFUNCIONARIOS
+            case "V2": //consulta para EXFUNCIONARIOS
+                
                 break;
 
-            case "V3":
-                //consulta para PENSIONADOS
+            case "V3": //consulta para PENSIONADOS
+                
                 break;
 
-            case "V4":
-                //consulta para NO PENSIONADOS
+            case "V4": //consulta para NO PENSIONADOS
+                
+                $sql = "SELECT np.id_persona as id,"//0
+                    . "np.apellido_nombre as nom,"//1
+                    . "np.documento as doc,"//2
+                    . "td.descripcion as doctype,"//3
+                    . "np.sexo as sex, "//4
+                    . "pe.email as email "//5
+                    . "FROM pasyvocol.no_pensionado AS np "
+                    . "INNER JOIN pasyvocol.tipo_documento AS td ON np.id_doctipo = td.id_doctipo "
+                    . "LEFT JOIN pasyvocol.no_pensionado_email AS pe ON np.documento = pe.doc_no_pensionado "
+                    . "WHERE np.documento = '$document';";
+                                
                 break;
 
-            case "V5":
-                //Consulta para CONTRATISTAS                
+            case "V5": //Consulta para CONTRATISTAS                
 
                 $sql = 'select nom,'//0
                         . 'doc,'//1

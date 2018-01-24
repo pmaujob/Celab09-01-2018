@@ -1,5 +1,4 @@
 <?php
-
 date_default_timezone_set('America/Bogota');
 @session_start();
 
@@ -146,7 +145,7 @@ $pdf->Output();
 
 $attachment = $pdf->Output('S', 'certificado.pdf');
 
-$subject = utf8_encode("Radicación Proyecto Bpid");
+$subject = utf8_decode("Certificados Laborales - CELAB");
 $msg = "Estimado(a) " . $contractorData[0] . ", adjuntamos al presente correo, copia del certificado "
         . "de contratos expedido el día " . ConvertFormats::formatDate(date("d-M-Y"));
 $altBody = utf8_decode("Estimado(a) " . $contractorData[0] . ", adjuntamos al presente correo, copia del certificado "
@@ -154,7 +153,7 @@ $altBody = utf8_decode("Estimado(a) " . $contractorData[0] . ", adjuntamos al pr
 
 $mail = new LnxMail();
 $mail->construct();
-$mail->setAddress("danielernestodaza@hotmail.com");
+$mail->setAddress($contractorData[2]);
 $mail->buildMail($subject, $msg, $altBody);
 $mail->addFPDFAttachment($attachment, 'certificado.pdf');
 

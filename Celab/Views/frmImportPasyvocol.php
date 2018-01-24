@@ -12,7 +12,6 @@ require_once $pRootC . '/Config/SysConfig.php';
         <meta charset="UTF-8">
         <title>Importar Pasyvocol</title>
         <?php include_once $pRootC . '/Admin/Views/header.php'; ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo MLIBSERVERPATH . 'Styles/MLnxStyles.css'; ?>">
 
         <script type="text/javascript" src="js/forms/frmImportPasyvocol.js"></script>
     </head>

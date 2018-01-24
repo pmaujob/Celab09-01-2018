@@ -24,8 +24,8 @@ class MRegistContractorData {
     public static function registContracts($idContractor, $bdContractor, $contractData, $emailContractor) {
 
         $consult = "select from ins_contract($idContractor, '$bdContractor', $contractData, '$emailContractor');";
-
         return ConnectionDB::afect(new HostData(), $consult);
+        
     }
 
     public static function registContractorEmail($doc, $email, $bd) {

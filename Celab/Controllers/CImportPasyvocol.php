@@ -53,7 +53,7 @@ class CImportPasyvocol {
 
             $newObj = array(
                 "personName" => $object[2],
-                "doc" => $object[1],
+                "doc" => str_replace(".", "", $object[1]),
                 "docType" => $object[0],
                 "emType" => ($object[3] == "Oficial" ? "O" : "P"),
                 "genre" => ($object[4] == "Masculino" ? "M" : "F"),

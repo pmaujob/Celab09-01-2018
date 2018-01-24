@@ -7,6 +7,7 @@ $pRootC = $_SESSION['pRootC'];
 $pRootHtml = $_SESSION['pRootHtml'];
 
 require_once $pRootC . '/Celab/Models/MRegistContractorData.php';
+require_once $pRootC . '/Celab/Models/MRegistPasyvocol.php';
 
 $opModel = $_POST['opModel'];
 
@@ -35,6 +36,17 @@ switch ($opModel) {
         $_SESSION['contractorData'] = $_POST['contractorData'];
         $_SESSION['contractData'] = $_POST['contractData'];
         header("Location:  $pRootHtml/CelabServices/Views/certificates/contractorCert.php");
+
+        break;
+    
+    case "CERT_NO_PENSIONER":
+
+        $noPensionerData = explode(',', $_POST['noPensionerData']);
+
+        $res = MRegistPasyvocol::registNoPensionerEmail($noPensionerData[2], $noPensionerData[5]);
+
+        $_SESSION['noPensionerData'] = $_POST['noPensionerData'];
+        header("Location:  $pRootHtml/CelabServices/Views/certificates/noPensionerCert.php");
 
         break;
 

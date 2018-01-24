@@ -14,6 +14,14 @@ class MRegistPasyvocol {
         $consult = "select from pasyvocol.ins_pasyvocol($jsonNoPensioner);";
         return ConnectionDB::afect(new HostData(), $consult);
     }
+    
+    public static function registNoPensionerEmail($doc, $email) {
+
+        $consult = "select from pasyvocol.ins_no_pensionado_email('$doc', '$email');";   
+        return ConnectionDB::afect(new HostData(), $consult);
+        
+    }
+
 
 }
 ?>
