@@ -8,23 +8,29 @@ $pRootHtml = $_SESSION['pRootHtml'];
 
 require_once $pRootC . '/Celab/Models/MRegistContractorData.php';
 require_once $pRootC . '/Celab/Models/MRegistPasyvocol.php';
+require_once $pRootC . '/CelabServices/Controllers/ManagementWS.php';
 
 $opModel = $_POST['opModel'];
-
 switch ($opModel) {
 
     case "MOD_VINCULATION_TYPE":
 
-        header("Location:  $pRootHtml/CelabServices/Controllers/ManagementWS.php?opModel=" . $opModel);
-
+        echo ManagementWS::getVinculationType();
         break;
 
     case "MOD_SEARCH_CONTRACTOR":
 
-        $document = $_POST['document'];
-        $docType = $_POST['docType'];
-        header("Location:  $pRootHtml/CelabServices/Controllers/ManagementWS.php?opModel=" . $opModel . "&document=" . $document . "&docType=" . $docType);
+        echo ManagementWS::searchContractor($_POST['document'], $_POST['docType']);
+        break;
 
+    case "MOD_GET_DOCUMENT_TYPE":
+
+        echo ManagementWS::getDocumentType();
+        break;
+
+    case "MOD_GET_PLACES":
+
+        echo ManagementWS::getPlaces($_POST['codDep']);
         break;
 
     case "CERT_CONTRACTOR":
@@ -38,7 +44,7 @@ switch ($opModel) {
         header("Location:  $pRootHtml/CelabServices/Views/certificates/contractorCert.php");
 
         break;
-    
+
     case "CERT_NO_PENSIONER":
 
         $noPensionerData = explode(',', $_POST['noPensionerData']);
@@ -52,16 +58,25 @@ switch ($opModel) {
 
     case "MOD_GET_CONTRACT_ADDS":
 
-        $idContract = $_POST['idContract'];
-        $bd = $_POST['bd'];
-        header("Location:  $pRootHtml/CelabServices/Controllers/ManagementWS.php?opModel=" . $opModel . "&idContract=" . $idContract . "&bd=" . $bd);
+        echo ManagementWS::getContractAdds($_POST['idContract'], $_POST['bd']);
+        break;
 
+    case "MOD_REGIST_NO_PENSIONER":
+
+        $noPensionerData = array();
+        $noPensionerData = $_POST['noPensionerData'];
+        echo ManagementWS::registNoPensioner($noPensionerData);
+
+        break;
+
+    case "MOD_CONFIRM_NO_PENSIONER":
+
+        echo ManagementWS::confirmNoPensioner($_POST['sha1']);
         break;
 
     default:
 
         echo "MOD_ERROR";
-
         break;
 }
 ?>

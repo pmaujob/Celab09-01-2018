@@ -45,7 +45,7 @@ $pdf->SetFont('Arial', '', 10);
 DisenoCertificacionesPDF::justificarParrafo(utf8_decode('Que revisadas las nóminas de pensionados que reposan en esta dependencia, '
                 . 'NO se encontró como ' . ($noPensionerData[4] == "M" ? 'pensionado' : 'pensionada') . ' del Departamento '
                 . 'de Nariño, ni gestionando pensión alguna en ésta Entidad, ' . ($noPensionerData[4] == "M" ? 'el señor' : 'la señora')
-                . ' ' . utf8_decode(strtoupper($noPensionerData[1]))) . ($noPensionerData[4] == "M" ? ', identificado' : ', identificada')
+                . ' ' . strtoupper($noPensionerData[1])) . ($noPensionerData[4] == "M" ? ', identificado' : ', identificada')
         . ' con ' . utf8_decode($noPensionerData[3]) . ' No. ' . $noPensionerData[2] . '.', 0.96, $pdf, 0, 5);
 $pdf->Ln(10);
 $pdf->Cell(0, 5, utf8_decode('La presente Constancia se expide a solicitud del interesado.'));

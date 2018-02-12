@@ -141,7 +141,12 @@ $pdf->Ln();
 $pdf->Cell(44, 4, utf8_decode('www.narino.gov.co'));
 
 $pdf->Output();
-//========= Enviar por correo===========
+//========= Guardar histórico ==========
+
+
+
+
+//========= Enviar por correo ==========
 
 $attachment = $pdf->Output('S', 'certificado.pdf');
 
