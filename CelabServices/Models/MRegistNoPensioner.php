@@ -21,6 +21,20 @@ class MRegistNoPensioner {
         return ConnectionDB::consult(new HostData(), $sql);
     }
 
+    public static function registNoPensionerHist($codVer, $idNoPen, $creationDate, $resp, $respJob, $signPath) {
+
+        $sql = "select cod from regist_no_pen_historico("
+                . "'$codVer',"
+                . "$idNoPen,"
+                . "'$creationDate',"
+                . "'$resp',"
+                . "'$respJob',"
+                . ($signPath == null ? 'null ' : "'$signPath'")
+                . ') as ("cod" varchar);';
+
+        return ConnectionDB::consult(new HostData(), $sql);
+    }
+
 }
 
 ?>
